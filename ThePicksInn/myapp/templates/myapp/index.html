@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/
   libs/font-awesome/5.15.4/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{% static '/css/style.css' %}" />
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon" />
   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
   <link rel="stylesheet" href="assets/css/animate.css" />
@@ -94,7 +96,7 @@
 
     </div>
     <div class="w-1/2 h-1/2">
-      <img src="hero-image.png" alt="hero image" class="object-cover rounded-xl" />
+      <img src="{% static 'images/hero-image.png' %}" alt="hero image" class="object-cover rounded-xl" />
     </div>
   </section>
   <!-- Hero Section End -->

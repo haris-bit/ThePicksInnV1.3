@@ -5,10 +5,10 @@ from .serializers import DrinkSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+import requests
+import json
 
-# Create your views here.
-def home(request):
-    return render(request, 'myapp/index.html')
+
 
 @api_view(['GET', 'POST'])
 def drink_list(request, format=None):
@@ -51,3 +51,21 @@ def drink_detail(request, id, format=None):
     elif request.method == 'DELETE':
         drink.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+@api_view(['GET'])
+def home(request):
+    response = requests.get('https://mybackendnba-e0bd8ae9accb.herokuapp.com/advance-stats/')
+    
+    # Check if the response is successful (status code 200)
+    if response.status_code == 200:
+        data_from_api = response.json()
+    else:
+        data_from_api = None
+
+    return render(request, 'myapp/index.html', {'data_from_api': data_from_api, 'status_code': response.status_code})
+
+
+
+
+

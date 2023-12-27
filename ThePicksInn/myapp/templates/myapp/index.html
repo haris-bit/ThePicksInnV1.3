@@ -290,8 +290,8 @@
     <!-- Dropdown for Draft Year -->
     <div class="justify-center items-center w-full mb-4">
       <label for="draftYear" class="text-white mr-2">Select Draft Year:</label>
-      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border >
-        <option value=" 2021">2021</option>
+      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border">
+        <option value="2021">2021</option>
         <option value="2022">2022</option>
         <option value="2023" selected>2023</option>
       </select>
@@ -314,250 +314,30 @@
           <th class="py-2 px-4 text-left">VORP</th>
         </tr>
       </thead>
+      
+      {% if data_from_api %}
+      <!-- Table Body -->
       <tbody>
+        {% for player in data_from_api %}
         <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">1</td>
-          <td class="py-2 px-4 flex items-center">Victor Wembanyama</td>
-          <td class="py-2 px-4">1</td>
-          <td class="py-2 px-4">Metropolitans 92</td>
-          <td class="py-2 px-4">25.0</td>
-          <td class="py-2 px-4">10.0</td>
-          <td class="py-2 px-4">0.20</td>
-          <td class="py-2 px-4">8.0</td>
-          <td class="py-2 px-4">15.0</td>
+          <td class="py-2 px-4">{{ player.draft_year }}</td>
+          <td class="py-2 px-4">{{ player.rank }}</td>
+          <td class="py-2 px-4">{{ player.name }}</td>
+          <td class="py-2 px-4">{{ player.pick }}</td>
+          <td class="py-2 px-4">{{ player.college_team }}</td>
+          <td class="py-2 px-4">{{ player.player_efficiency_rating }}</td>
+          <td class="py-2 px-4">{{ player.win_shares }}</td>
+          <td class="py-2 px-4">{{ player.win_shares_per_48_minutes }}</td>
+          <td class="py-2 px-4">{{ player.box_plus_minus }}</td>
+          <td class="py-2 px-4">{{ player.value_over_replacement_player }}</td>
         </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">2</td>
-          <td class="py-2 px-4 flex items-center">Brandon Miller</td>
-          <td class="py-2 px-4">2</td>
-          <td class="py-2 px-4">Alabama</td>
-          <td class="py-2 px-4">22.0</td>
-          <td class="py-2 px-4">8.0</td>
-          <td class="py-2 px-4">0.18</td>
-          <td class="py-2 px-4">7.0</td>
-          <td class="py-2 px-4">12.0</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">3</td>
-          <td class="py-2 px-4 flex items-center">Scoot Henderson</td>
-          <td class="py-2 px-4">3</td>
-          <td class="py-2 px-4">Kentucky</td>
-          <td class="py-2 px-4">21.0</td>
-          <td class="py-2 px-4">7.5</td>
-          <td class="py-2 px-4">0.17</td>
-          <td class="py-2 px-4">6.5</td>
-          <td class="py-2 px-4">11.0</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">4</td>
-          <td class="py-2 px-4 flex items-center">Amen Thompson</td>
-          <td class="py-2 px-4">4</td>
-          <td class="py-2 px-4">Indiana</td>
-          <td class="py-2 px-4">19.5</td>
-          <td class="py-2 px-4">7.0</td>
-          <td class="py-2 px-4">0.16</td>
-          <td class="py-2 px-4">6.0</td>
-          <td class="py-2 px-4">10.0</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">5</td>
-          <td class="py-2 px-4 flex items-center">Ausar Thompson</td>
-          <td class="py-2 px-4">5</td>
-          <td class="py-2 px-4">Overland Park Wizards</td>
-          <td class="py-2 px-4">19.0</td>
-          <td class="py-2 px-4">6.5</td>
-          <td class="py-2 px-4">0.15</td>
-          <td class="py-2 px-4">5.5</td>
-          <td class="py-2 px-4">9.5</td>
-        </tr>
-
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">6</td>
-          <td class="py-2 px-4 flex items-center">Anthony Black</td>
-          <td class="py-2 px-4">6</td>
-          <td class="py-2 px-4">Arkansas</td>
-          <td class="py-2 px-4">18.5</td>
-          <td class="py-2 px-4">6.0</td>
-          <td class="py-2 px-4">0.14</td>
-          <td class="py-2 px-4">5.0</td>
-          <td class="py-2 px-4">8.5</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">7</td>
-          <td class="py-2 px-4 flex items-center">Bilal Coulibaly</td>
-          <td class="py-2 px-4">7</td>
-          <td class="py-2 px-4">France</td>
-          <td class="py-2 px-4">18.0</td>
-          <td class="py-2 px-4">5.5</td>
-          <td class="py-2 px-4">0.13</td>
-          <td class="py-2 px-4">4.5</td>
-          <td class="py-2 px-4">7.5</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">8</td>
-          <td class="py-2 px-4 flex items-center">Jarace Walker</td>
-          <td class="py-2 px-4">8</td>
-          <td class="py-2 px-4">Auburn</td>
-          <td class="py-2 px-4">17.5</td>
-          <td class="py-2 px-4">5.0</td>
-          <td class="py-2 px-4">0.12</td>
-          <td class="py-2 px-4">4.0</td>
-          <td class="py-2 px-4">6.5</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">9</td>
-          <td class="py-2 px-4 flex items-center">Taylor Hendricks</td>
-          <td class="py-2 px-4">9</td>
-          <td class="py-2 px-4">Kansas</td>
-          <td class="py-2 px-4">17.0</td>
-          <td class="py-2 px-4">4.5</td>
-          <td class="py-2 px-4">0.11</td>
-          <td class="py-2 px-4">3.5</td>
-          <td class="py-2 px-4">5.5</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">10</td>
-          <td class="py-2 px-4 flex items-center">Cason Wallace</td>
-          <td class="py-2 px-4">10</td>
-          <td class="py-2 px-4">Kentucky</td>
-          <td class="py-2 px-4">16.5</td>
-          <td class="py-2 px-4">4.0</td>
-          <td class="py-2 px-4">0.10</td>
-          <td class="py-2 px-4">3.0</td>
-          <td class="py-2 px-4">4.5</td>
-        </tr>
-
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">11</td>
-          <td class="py-2 px-4 flex items-center">Jett Howard</td>
-          <td class="py-2 px-4">11</td>
-          <td class="py-2 px-4">Michigan</td>
-          <td class="py-2 px-4">16.0</td>
-          <td class="py-2 px-4">3.5</td>
-          <td class="py-2 px-4">0.09</td>
-          <td class="py-2 px-4">2.5</td>
-          <td class="py-2 px-4">3.5</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">12</td>
-          <td class="py-2 px-4 flex items-center">Dereck Lively II</td>
-          <td class="py-2 px-4">12</td>
-          <td class="py-2 px-4">Duke</td>
-          <td class="py-2 px-4">15.5</td>
-          <td class="py-2 px-4">3.0</td>
-          <td class="py-2 px-4">0.08</td>
-          <td class="py-2 px-4">2.0</td>
-          <td class="py-2 px-4">2.5</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">13</td>
-          <td class="py-2 px-4 flex items-center">Gradey Dick</td>
-          <td class="py-2 px-4">13</td>
-          <td class="py-2 px-4">Kansas</td>
-          <td class="py-2 px-4">15.0</td>
-          <td class="py-2 px-4">2.5</td>
-          <td class="py-2 px-4">0.07</td>
-          <td class="py-2 px-4">1.5</td>
-          <td class="py-2 px-4">2.0</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">14</td>
-          <td class="py-2 px-4 flex items-center">Jordan Hawkins</td>
-          <td class="py-2 px-4">14</td>
-          <td class="py-2 px-4">Creighton</td>
-          <td class="py-2 px-4">14.5</td>
-          <td class="py-2 px-4">2.0</td>
-          <td class="py-2 px-4">0.06</td>
-          <td class="py-2 px-4">1.0</td>
-          <td class="py-2 px-4">1.5</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">15</td>
-          <td class="py-2 px-4 flex items-center">Julian Strawther</td>
-          <td class="py-2 px-4">15</td>
-          <td class="py-2 px-4">Creighton</td>
-          <td class="py-2 px-4">0.06</td>
-          <td class="py-2 px-4">1.0</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">16</td>
-          <td class="py-2 px-4 flex items-center">Emoni Bates</td>
-          <td class="py-2 px-4">16</td>
-          <td class="py-2 px-4">Creighton</td>
-          <td class="py-2 px-4">0.06</td>
-          <td class="py-2 px-4">1.0</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">17</td>
-          <td class="py-2 px-4 flex items-center">Jalen Hood-Schifino </td>
-          <td class="py-2 px-4">17</td>
-          <td class="py-2 px-4">Creighton</td>
-          <td class="py-2 px-4">0.06</td>
-          <td class="py-2 px-4">1.0</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">18</td>
-          <td class="py-2 px-4 flex items-center">Keyontae Johnson </td>
-          <td class="py-2 px-4">18</td>
-          <td class="py-2 px-4">Creighton</td>
-          <td class="py-2 px-4">0.06</td>
-          <td class="py-2 px-4">1.0</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">19</td>
-          <td class="py-2 px-4 flex items-center">Adem Bona </td>
-          <td class="py-2 px-4">19</td>
-          <td class="py-2 px-4">Creighton</td>
-          <td class="py-2 px-4">0.06</td>
-          <td class="py-2 px-4">1.0</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-        </tr>
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">20</td>
-          <td class="py-2 px-4 flex items-center">Terry Roberts</td>
-          <td class="py-2 px-4">20</td>
-          <td class="py-2 px-4">Creighton</td>
-          <td class="py-2 px-4">0.06</td>
-          <td class="py-2 px-4">1.0</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-          <td class="py-2 px-4">-</td>
-        </tr>
+        {% endfor %}
       </tbody>
+      {% else %}
+      <p>Error fetching data from the API. Status code: {{ status_code }}</p>
+      {% endif %}
+
+
     </table>
 
   </section>
@@ -577,8 +357,8 @@
     <!-- Dropdown for Draft Year -->
     <div>
       <label for="draftYear" class="text-white mr-2">Select Draft Year:</label>
-      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border >
-        <option value=" 2021">2021</option>
+      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border">
+        <option value="2021">2021</option>
         <option value="2022">2022</option>
         <option value="2023" selected>2023</option>
       </select>

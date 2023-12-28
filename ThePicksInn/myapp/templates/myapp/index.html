@@ -290,8 +290,8 @@
     <!-- Dropdown for Draft Year -->
     <div class="justify-center items-center w-full mb-4">
       <label for="draftYear" class="text-white mr-2">Select Draft Year:</label>
-      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border">
-        <option value="2021">2021</option>
+      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border >
+        <option value=" 2021">2021</option>
         <option value="2022">2022</option>
         <option value="2023" selected>2023</option>
       </select>
@@ -315,10 +315,10 @@
         </tr>
       </thead>
       
-      {% if data_from_api %}
+      {% if data1 %}
       <!-- Table Body -->
       <tbody>
-        {% for player in data_from_api %}
+        {% for player in data1 %}
         <tr class="border-b border-gray-300">
           <td class="py-2 px-4">{{ player.draft_year }}</td>
           <td class="py-2 px-4">{{ player.rank }}</td>
@@ -357,8 +357,8 @@
     <!-- Dropdown for Draft Year -->
     <div>
       <label for="draftYear" class="text-white mr-2">Select Draft Year:</label>
-      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border">
-        <option value="2021">2021</option>
+      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border >
+        <option value=" 2021">2021</option>
         <option value="2022">2022</option>
         <option value="2023" selected>2023</option>
       </select>
@@ -379,88 +379,24 @@
         </tr>
       </thead>
       <!-- Table Body -->
+      {% if data2 %}
       <tbody>
+        {% for player in data2 %}
         <tr class="border-b border-gray-300">
           <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">1<sup>st</sup></td>
-          <td class="py-2 px-4">John Smith</td>
-          <td class="py-2 px-4">20</td>
-          <td class="py-2 px-4">100%</td>
-          <td class="py-2 px-4">99</td>
-          <td class="py-2 px-4">100%</td>
+          <td class="py-2 px-4">{{ player.rank }}</td>
+          <td class="py-2 px-4">{{ player.Username }}</td>
+          <td class="py-2 px-4">{{ player.correct_picks_count }}</td>
+          <td class="py-2 px-4">{{ player.accuracy }}</td>
+          <td class="py-2 px-4">{{ player.sum_per_user_submitted }}</td>
+          <td class="py-2 px-4">{{ player.per_percentage }}</td>
         </tr>
+        {% endfor %}
 
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">2<sup>nd</sup></td>
-          <td class="py-2 px-4">Jane Doe</td>
-          <td class="py-2 px-4">18</td>
-          <td class="py-2 px-4">90%</td>
-          <td class="py-2 px-4">95</td>
-          <td class="py-2 px-4">98%</td>
-        </tr>
-
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">3<sup>rd</sup></td>
-          <td class="py-2 px-4">Mike Johnson</td>
-          <td class="py-2 px-4">17</td>
-          <td class="py-2 px-4">85%</td>
-          <td class="py-2 px-4">92</td>
-          <td class="py-2 px-4">94%</td>
-        </tr>
-
-        <!-- Sample Data (additional entries) -->
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">4<sup>th</sup></td>
-          <td class="py-2 px-4">Emily Clark</td>
-          <td class="py-2 px-4">16</td>
-          <td class="py-2 px-4">80%</td>
-          <td class="py-2 px-4">88</td>
-          <td class="py-2 px-4">90%</td>
-        </tr>
-
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">5<sup>th</sup></td>
-          <td class="py-2 px-4">Alex Williams</td>
-          <td class="py-2 px-4">15</td>
-          <td class="py-2 px-4">75%</td>
-          <td class="py-2 px-4">85</td>
-          <td class="py-2 px-4">88%</td>
-        </tr>
-
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">6<sup>th</sup></td>
-          <td class="py-2 px-4">Chris Turner</td>
-          <td class="py-2 px-4">14</td>
-          <td class="py-2 px-4">70%</td>
-          <td class="py-2 px-4">82</td>
-          <td class="py-2 px-4">85%</td>
-        </tr>
-
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">7<sup>th</sup></td>
-          <td class="py-2 px-4">Jessica Miller</td>
-          <td class="py-2 px-4">13</td>
-          <td class="py-2 px-4">65%</td>
-          <td class="py-2 px-4">78</td>
-          <td class="py-2 px-4">82%</td>
-        </tr>
-
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">8<sup>th</sup></td>
-          <td class="py-2 px-4">Brian Davis</td>
-          <td class="py-2 px-4">12</td>
-          <td class="py-2 px-4">60%</td>
-          <td class="py-2 px-4">75</td>
-          <td class="py-2 px-4">80%</td>
-        </tr>
       </tbody>
+      {% else %}
+      <p>Error fetching data from the API. Status code: {{ status_code }}</p>
+      {% endif %}
     </table>
   </section>
   <!-- Leaderboard End -->

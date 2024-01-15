@@ -23,8 +23,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1"></script>
 
-
-
   <title>The Picks Inn</title>
 </head>
 
@@ -320,8 +318,10 @@
       <tbody>
         {% for player in data1 %}
         <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">{{ player.draft_year }}</td>
-          <td class="py-2 px-4">{{ player.rank }}</td>
+          <td class="py-2 px-4">2023</td>
+          <td class="py-2 px-4">
+            {{ forloop.counter }}
+          </td>
           <td class="py-2 px-4">{{ player.name }}</td>
           <td class="py-2 px-4">{{ player.pick }}</td>
           <td class="py-2 px-4">{{ player.college_team }}</td>
@@ -354,50 +354,15 @@
       Compare your board against the professionals
     </p>
 
-    <!-- Dropdown for Draft Year -->
-    <div>
-      <label for="draftYear" class="text-white mr-2">Select Draft Year:</label>
-      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border >
-        <option value=" 2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2023" selected>2023</option>
-      </select>
+    <div class="flex justify-center">
+      <a 
+      href={% url 'leaderboard' %}
+      class="px-12 py-4 rounded-md border text-[#090E34] neumorphism"
+      >
+        Go to Leaderboard
+      </a>
     </div>
 
-    <!-- Table -->
-    <table class="w-full neumorphism-table">
-      <!-- Table Header -->
-      <thead class="border-b border-gray-300">
-        <tr>
-          <th class="py-2 px-4 text-left">Draft Year</th>
-          <th class="py-2 px-4 text-left">Rank</th>
-          <th class="py-2 px-4 text-left">Username</th>
-          <th class="py-2 px-4 text-left">Picks Correct</th>
-          <th class="py-2 px-4 text-left">Accuracy</th>
-          <th class="py-2 px-4 text-left">Sum PER</th>
-          <th class="py-2 px-4 text-left">PER%</th>
-        </tr>
-      </thead>
-      <!-- Table Body -->
-      {% if data2 %}
-      <tbody>
-        {% for player in data2 %}
-        <tr class="border-b border-gray-300">
-          <td class="py-2 px-4">2023</td>
-          <td class="py-2 px-4">{{ player.rank }}</td>
-          <td class="py-2 px-4">{{ player.Username }}</td>
-          <td class="py-2 px-4">{{ player.correct_picks_count }}</td>
-          <td class="py-2 px-4">{{ player.accuracy }}</td>
-          <td class="py-2 px-4">{{ player.sum_per_user_submitted }}</td>
-          <td class="py-2 px-4">{{ player.per_percentage }}</td>
-        </tr>
-        {% endfor %}
-
-      </tbody>
-      {% else %}
-      <p>Error fetching data from the API. Status code: {{ status_code }}</p>
-      {% endif %}
-    </table>
   </section>
   <!-- Leaderboard End -->
   <!-- =============================================== -->

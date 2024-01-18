@@ -1,0 +1,18 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div style="width: 75%; margin: auto; text-align: center;">
+        <button style="background-color: #1a202c; color: white; font-weight: bold; padding: 10px 20px; border-radius: 4px;">
+            <a href="{% url 'social:begin' 'google-oauth2' %}" style="color: white; text-decoration: none;">Login with Google</a>
+        </button>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
+

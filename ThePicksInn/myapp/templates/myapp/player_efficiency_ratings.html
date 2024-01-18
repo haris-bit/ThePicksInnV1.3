@@ -1,0 +1,36 @@
+<!-- myapp/templates/myapp/player_efficiency_ratings.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Efficiency Ratings</title>
+</head>
+<body>
+    <h1>Player Efficiency Ratings</h1>
+
+    {% if data %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Stat 1</th>
+                    <th>Stat 2</th>
+                    <!-- Add more headers for each stat you want to display -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in data %}
+                    <tr>
+                        <td>{{ player.stat1 }}</td>
+                        <td>{{ player.stat2 }}</td>
+                        <!-- Add more columns for each stat you want to display -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No data available.</p>
+    {% endif %}
+</body>
+</html>

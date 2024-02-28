@@ -10,8 +10,8 @@ import json
 
 
 
-def get_top_20_players():
-    response = requests.get('https://mybackendnba-e0bd8ae9accb.herokuapp.com/advance-stats/')
+def get_top_20_players(year=2023):
+    response = requests.get(f'https://newdjangobackend-b4845409485a.herokuapp.com/advance-stats/{year}/')
     print('Top 20 Players Status Code:', response.status_code)
     if response.status_code == 200:
         return response.json()
@@ -19,8 +19,16 @@ def get_top_20_players():
 
 
 def get_leaderboard_data():
-    response = requests.get('https://mybackendnba-e0bd8ae9accb.herokuapp.com/api/leaderboard-list/')
+    response = requests.get('https://newdjangobackend-b4845409485a.herokuapp.com/api/leaderboard-list/')
     print('Leaderboard Data Status Code:', response.status_code)
+    if response.status_code == 200:
+        return response.json()
+    return None
+
+
+def get_scoutingPerformance(username='Jkern'):
+    response = requests.get(f'https://newdjangobackend-b4845409485a.herokuapp.com/api/leaderboard/{username}/')
+    print('Scouting Performance Status Code:', response.status_code)
     if response.status_code == 200:
         return response.json()
     return None
@@ -30,20 +38,28 @@ def get_leaderboard_data():
 def login(request):
     return render(request, 'myapp/login.html')
 
-# by default, the home page will call the top 20 api
 @login_required
 def home(request):
+
+    year = request.GET.get('draftYear', 2023)
+
     # Get data for top 20 players
-    data1 = get_top_20_players()
+    data1 = get_top_20_players(year)
+
+    # Get username from the request.GET dictionary
+    username = request.GET.get('username', 'Jkern')
+
+    # Get scouting performance data for the specified username
+    data2 = get_scoutingPerformance(username)
 
     # Check if the response is successful
-    if data1 is not None:
+    if data1 is not None and data2 is not None:
         # Pass the data to the template
-        context = {'data1': data1}
+        context = {'data1': data1, 'data2': data2}
         return render(request, 'myapp/index.html', context)
     else:
         # Pass status codes to the template for debugging
-        context = {'status_code': f'Top 20 players data retrieval failed'}
+        context = {'status_code': f'Top 20 players data and scouting performance data retrieval failed'}
         return render(request, 'myapp/index.html', context)
 
 
@@ -82,6 +98,12 @@ def leaderboard(request):
         context = {'status_code': f'Leaderboard data retrieval failed'}
         return render(request, 'myapp/leaderboard.html', context)
 
+
+
+
+# def scoutingPerfomance(request):
+    # url https://newdjangobackend-b4845409485a.herokuapp.com/api/leaderboard/Jkern/
+    # return render(request, 'myapp/scoutingPerfomance.html')
 
 
 

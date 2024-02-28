@@ -227,6 +227,16 @@
     <p class="text-center text-gray-400">
       Monitor results of your board in real-time
     </p>
+    <!-- <input type="text" id="userName" placeholder="Enter your username" class="text-black" />
+    <button type="button" class="px-4 py-2 bg-white rounded-md text-blue-500">Search</button> -->
+
+    <form method="get" action="{% url 'home' %}">
+      <label for="username">Enter Username:</label>
+      <input type="text" id="username" name="username" placeholder="Jkern" class="text-black">
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Submit
+    </button>
+    </form>
 
     <!-- Table -->
     <table class="w-full neumorphism-table">
@@ -238,37 +248,49 @@
           <th class="py-2 px-4 text-left">Rank</th>
         </tr>
       </thead>
+      {% if data2 %}
       <!-- Table Body -->
       <tbody>
+        <!-- Username -->
+        <tr class="border-b border-gray-300">
+          <td class="py-2 px-4">Username</td>
+          <td class="py-2 px-4">{{ data2.Username }}</td>
+          <td class="py-2 px-4">1<sup class="text-sm">st</sup></td>
+        </tr>
+
         <!-- Correct Picks -->
         <tr class="border-b border-gray-300">
           <td class="py-2 px-4">Correct Picks</td>
-          <td class="py-2 px-4">20</td>
+          <td class="py-2 px-4">{{ data2.correct_picks_count }}</td>
           <td class="py-2 px-4">1<sup class="text-sm">st</sup></td>
         </tr>
 
         <!-- Accuracy -->
         <tr class="border-b border-gray-300">
           <td class="py-2 px-4">Accuracy</td>
-          <td class="py-2 px-4">100%</td>
+          <td class="py-2 px-4">{{ data2.accuracy }}</td>
           <td class="py-2 px-4">1<sup class="text-sm">st</sup></td>
         </tr>
 
         <!-- Sum PER -->
         <tr class="border-b border-gray-300">
           <td class="py-2 px-4">Sum PER</td>
-          <td class="py-2 px-4">99</td>
+          <td class="py-2 px-4">{{ data2.sum_per_actual }}</td>
           <td class="py-2 px-4">1<sup class="text-sm">st</sup></td>
         </tr>
 
         <!-- PER% -->
         <tr class="border-b border-gray-300">
           <td class="py-2 px-4">PER%</td>
-          <td class="py-2 px-4">100%</td>
+          <td class="py-2 px-4">{{ data2.per_percentage }}</td>
           <td class="py-2 px-4">1<sup class="text-sm">st</sup></td>
         </tr>
       </tbody>
+      {% endif %}
     </table>
+    {% if not data2 %}
+    <p>Error fetching data from the API. Status code: {{ status_code }}</p>
+    {% endif %}
   </section>
   <!-- Scouting Performance Section End -->
   <!-- =============================================== -->
@@ -285,16 +307,21 @@
       The Top 20 Players Per Advanced Metrics
     </p>
 
-    <!-- Dropdown for Draft Year -->
-    <div class="justify-center items-center w-full mb-4">
-      <label for="draftYear" class="text-white mr-2">Select Draft Year:</label>
-      <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border >
-        <option value=" 2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2023" selected>2023</option>
-      </select>
-    </div>
-
+    <!-- Form for selecting Draft Year -->
+    <form method="GET" action="{% url 'home' %}">
+      <div class="justify-center items-center w-full mb-4">
+          <label for="draftYear" class="text-white mr-2">Select Draft Year:</label>
+          <select id="draftYear" name="draftYear" class="px-12 py-2 rounded-md border">
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+              <option value="2023" selected>2023</option>
+              <option value="2024">2024</option>
+          </select>
+          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Submit
+          </button>
+      </div>
+  </form>
 
     <!-- Table -->
     <table class="w-full neumorphism-table">

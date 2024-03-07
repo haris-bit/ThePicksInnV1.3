@@ -315,7 +315,6 @@
               <option value="2021">2021</option>
               <option value="2022">2022</option>
               <option value="2023" selected>2023</option>
-              <option value="2024">2024</option>
           </select>
           <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               Submit
@@ -349,10 +348,10 @@
           <td class="py-2 px-4">
             {{ forloop.counter }}
           </td>
-          <td class="py-2 px-4">{{ player.name }}</td>
+          <td class="py-2 px-4">{{ player.player_name }}</td>
           <td class="py-2 px-4">{{ player.pick }}</td>
           <td class="py-2 px-4">{{ player.college_team }}</td>
-          <td class="py-2 px-4">{{ player.player_efficiency_rating }}</td>
+          <td class="py-2 px-4">{{ player.per }}</td>
           <td class="py-2 px-4">{{ player.win_shares }}</td>
           <td class="py-2 px-4">{{ player.win_shares_per_48_minutes }}</td>
           <td class="py-2 px-4">{{ player.box_plus_minus }}</td>

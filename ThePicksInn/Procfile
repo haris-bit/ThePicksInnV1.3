@@ -1,0 +1,2 @@
+web: gunicorn ThePicksInn.wsgi:application --log-file -
+web-alt: gunicorn ThePicksInn.wsgi:application --pythonpath .

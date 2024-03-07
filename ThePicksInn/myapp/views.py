@@ -9,6 +9,26 @@ import json
 
 
 
+def get_real_top_20_players(year):
+    if year==2021:
+        response = requests.get(f'https://newdjangobackend-b4845409485a.herokuapp.com/api/player_efficiency_ratings_hard_coded_2021')
+        print('Top 20 Players 2021 Status Code:', response.status_code)
+        if response.status_code == 200:
+            return response.json()
+        return None
+    elif year==2022:
+        response = requests.get(f'https://newdjangobackend-b4845409485a.herokuapp.com/api/player_efficiency_ratings_hard_coded_2022')
+        print('Top 20 Players 2022 Status Code:', response.status_code)
+        if response.status_code == 200:
+            return response.json()
+        return None
+    else:
+        response = requests.get(f'https://newdjangobackend-b4845409485a.herokuapp.com/api/player_efficiency_ratings_hard_coded_2023')
+        print('Top 20 Players 2023 Status Code:', response.status_code)
+        if response.status_code == 200:
+            return response.json()
+        return None
+
 
 def get_top_20_players(year=2023):
     response = requests.get(f'https://newdjangobackend-b4845409485a.herokuapp.com/advance-stats/{year}/')
@@ -41,10 +61,12 @@ def login(request):
 @login_required
 def home(request):
 
-    year = request.GET.get('draftYear', 2023)
-
+    year = int(request.GET.get('draftYear', 2023))
+    print("Selected Year:", year)
+    
     # Get data for top 20 players
-    data1 = get_top_20_players(year)
+    # data1 = get_top_20_players(year)
+    data1 = get_real_top_20_players(year)
 
     # Get username from the request.GET dictionary
     username = request.GET.get('username', 'Jkern')
